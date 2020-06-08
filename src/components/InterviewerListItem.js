@@ -8,12 +8,10 @@ const classNames = require('classnames');
 export default function InterviewerListItem(props) {
   let interviewerStyles = classNames("interviewers__item", {
     "interviewers__item--selected": props.selected,
-    "interviewers__item": !props.selected
   })
 
   let imageStyles = classNames("interviewers__item-image", {
     "interviewers__item--selected-image": props.selected,
-    "interviewers__item-image": !props.selected
   })
 
   return (
