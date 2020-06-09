@@ -8,6 +8,7 @@ export default function InterviewerList(props) {
   interviewer: id
   setInterviewer:function; accepts id of interviewer
   */ 
+ console.log(props.value)
 
   const interviewers = props.interviewers.map(interviewerObj => {
     return (
