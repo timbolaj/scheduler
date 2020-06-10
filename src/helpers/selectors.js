@@ -7,6 +7,8 @@ const matchAppointments = (appointments, ids) => {
 //Go through a state array with a days object and an appointments object
 //Match the appointments given in the days object to those in the appointments object
 function getAppointmentsForDay(state, day) {
+
+  
   let appointmentArr = [];
   state.days.map(dayObject => {
     if (dayObject.name === day) {
@@ -16,4 +18,4 @@ function getAppointmentsForDay(state, day) {
   return matchAppointments(state.appointments, appointmentArr);
 }
 
-module.exports = { getAppointmentsForDay };
+module.exports = { matchAppointments, getAppointmentsForDay };
