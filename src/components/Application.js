@@ -8,8 +8,7 @@ import axios from 'axios';
 import { matchAppointments, getAppointmentsForDay } from "helpers/selectors";
 
 export default function Application(props) {
-  // const [day, setDay] = useState([]);
-  // const [dayData, setDayData] = useState([]);
+
   const [state, setState] = useState({
     day: "Monday",
     days: [],
