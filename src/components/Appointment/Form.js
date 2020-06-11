@@ -4,6 +4,7 @@ import InterviewerList from 'components/InterviewerList';
 import { action } from '@storybook/addon-actions/dist/preview';
 
 export default function Form(props) {
+
   //For keeping track of the name
   const [currentName, setName] = useState(props.name || "");
   const [currentInterviewer, setInterviewer] = useState(props.value || null)
