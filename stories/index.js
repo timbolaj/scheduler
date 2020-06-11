@@ -147,7 +147,7 @@ storiesOf("DayListItem", module) //Initiates Storybook and registers our DayList
     .add('Show', () => ( 
       <Show 
         student="Lydia Miller-Jones"
-        interviewer={[interviewer]}
+        interviewer={interviewer}
         onEdit={action('onEdit')}
         onDelete={action('onDelete')}
       />))
@@ -196,7 +196,7 @@ storiesOf("DayListItem", module) //Initiates Storybook and registers our DayList
         <Appointment
           id={1}
           time="12pm"
-          interview={{ student: "Lydia Miller-Jones", interviewer: 'Sylvia Palmer'}}
+          interview={{ student: "Lydia Miller-Jones", interviewer: interviewer}}
         />
         <Appointment id="last" time="1pm" />
       </Fragment>

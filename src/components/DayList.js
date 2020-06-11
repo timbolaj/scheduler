@@ -7,13 +7,15 @@ export default function DayList(props) {
   //day is a string, currently selected day
   //setDay function that can accepts as an input the name of the day
 
-  const schedule = props.days.map(dayObj => {    
+  const schedule = props.days.map(dayObj => {
+ 
     return (
       <DayListItem
         key={dayObj.id}
-        selected={dayObj.name === props.day} 
-        {...dayObj}       
-      />         
+        selected={dayObj.name === props.day}
+        setDay={props.setDay}
+        {...dayObj}
+      />
     )
   })
   return <ul>{schedule}</ul>
