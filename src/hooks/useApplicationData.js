@@ -33,9 +33,9 @@ export default function useApplicationData() {
     }
     return daysOfWeek[day]
   }
-  
+
   function bookInterview(id, interview) {
- 
+
     const appointment = {
       ...state.appointments[id],
       interview: { ...interview }
@@ -48,14 +48,26 @@ export default function useApplicationData() {
 
     const dayOfWeek = findDay(state.day)
 
-    const day = {
+    let day = {
       ...state.days[dayOfWeek],
-      spots: state.days[dayOfWeek].spots - 1
+      spots: state.days[dayOfWeek]
+    }
+
+    if (!state.appointments[id].interview) {
+      day = {
+        ...state.days[dayOfWeek],
+        spots: state.days[dayOfWeek].spots - 1
+      } 
+    } else {
+      day = {
+        ...state.days[dayOfWeek],
+        spots: state.days[dayOfWeek].spots
+      } 
     }
 
     let days = state.days
     days[dayOfWeek] = day;
-
+    
     return axios.put(`http://localhost:8001/api/appointments/${id}`, {interview:interview})
     .then(res => {
         setState({...state, appointments, days})
