@@ -28,11 +28,12 @@ export default function useApplicationData(props) {
         days: all[0].data,
         appointments: all[1].data,
         interviewers: all[2].data
-      })
-      let webSocket = new WebSocket("ws://localhost:8001")
+      });
+
+      let webSocket = new WebSocket("ws://localhost:8001");
+
       webSocket.onopen = (() => {
-        webSocket.send("ping")
-      })
+      });
 
       webSocket.onmessage = function (event) {
         const info = JSON.parse(event.data);
@@ -53,7 +54,7 @@ export default function useApplicationData(props) {
     });
   }, []);
 
-  function bookInterview(id, interview) {
+  const bookInterview = (id, interview) => {
     return axios.put(`/api/appointments/${id}`, { interview }).then(r =>
       dispatch({
         type: SET_INTERVIEW,
@@ -61,9 +62,9 @@ export default function useApplicationData(props) {
         interview
       })
     );
-  }
+  };
 
-  function cancelInterview(id) {
+  const cancelInterview = id => {
     return axios.delete(`/api/appointments/${id}`).then(r =>
       dispatch({
         type: SET_INTERVIEW,
@@ -71,7 +72,7 @@ export default function useApplicationData(props) {
         interview: null
       })
     );
-  }
+  };
 
   return {
     state,
@@ -79,4 +80,4 @@ export default function useApplicationData(props) {
     bookInterview,
     cancelInterview
   };
-}
+};

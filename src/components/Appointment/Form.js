@@ -7,29 +7,29 @@ export default function Form(props) {
 
   //For keeping track of the name
   const [currentName, setName] = useState(props.name || "");
-  const [currentInterviewer, setInterviewer] = useState(props.value || null)
+  const [currentInterviewer, setInterviewer] = useState(props.value || null);
   const [error, setError] = useState("");
 
   //Helper function to clear all fields
   const reset = () => {
-    setName("")
-    setInterviewer(null)
-  }
+    setName("");
+    setInterviewer(null);
+  };
 
-  function cancel () {
+  const cancel = () => {
     // props.onCancel;
     reset();
-    props.onCancel()
-  }
+    props.onCancel();
+  };
 
-  function validate() {
+  const validate = () => {
     if (currentName === "") {
-      setError("Student name cannot be blank")
+      setError("Student name cannot be blank");
       return;
     }
-    setError("")
+    setError("");
     props.onSave(currentName, currentInterviewer);
-  }
+  };
 
   return (
     <main className="appointment__card appointment__card--create">
@@ -59,5 +59,5 @@ export default function Form(props) {
         </section>
       </section>
     </main>
-  )
-}
+  );
+};

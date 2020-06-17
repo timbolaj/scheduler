@@ -2,17 +2,14 @@ import React from 'react';
 import 'components/InterviewerListItem.scss'
 const classNames = require('classnames');
 
-/* Takes and id, name, avatar (url), selected, setInterviewer function(sets interviewer)
-*/
-
 export default function InterviewerListItem(props) {
   let interviewerStyles = classNames("interviewers__item", {
     "interviewers__item--selected": props.selected,
-  })
+  });
 
   let imageStyles = classNames("interviewers__item-image", {
     "interviewers__item--selected-image": props.selected,
-  })
+  });
 
   return (
     <li 
@@ -26,6 +23,6 @@ export default function InterviewerListItem(props) {
       />
       {props.selected && props.name}
     </li>
-  )
-}
+  );
+};
 

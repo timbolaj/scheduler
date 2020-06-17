@@ -37,9 +37,9 @@ export default function Appointment(props) {
       transition(EMPTY);
     }
 
-  }, [mode, transition, props.interview])
+  }, [mode, transition, props.interview]);
 
-  function save(name, interviewer) {
+  const save = (name, interviewer) => {
     
     if (name && interviewer) {
       transition(SAVING);
@@ -53,23 +53,19 @@ export default function Appointment(props) {
         .then(() => transition(SHOW))
         .catch(() => transition(ERROR_SAVE, true))
     }
-  }
+  };
 
-  function remove() {
+  const remove = () => {
 
     if (mode === CONFIRM) {
-      transition(DELETING, true)
+      transition(DELETING, true);
       props.cancelInterview(props.id)
       .then(() => transition(EMPTY))
       .catch(() => transition(ERROR_DELETE, true))
     } else {
       transition(CONFIRM);      
     }
-  }
-
-  function edit() {
-    transition(EDIT);
-  }
+  };
   
   return (
 
@@ -122,6 +118,5 @@ export default function Appointment(props) {
         />
       }
     </article>
-
-  )
-}
+  );
+};

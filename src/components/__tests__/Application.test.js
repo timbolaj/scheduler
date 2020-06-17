@@ -4,7 +4,7 @@ import ReactDOM from "react-dom";
 import { render, cleanup, waitForElement, wait, fireEvent, queryByAltText, getByText, getByAltText, getAllByTestId, prettyDOM, getByPlaceholderText, queryByText, queryAllByAltText } from "@testing-library/react";
 import axios from 'axios';
 import Application from "components/Application";
-import Empty from "components/Appointment/Empty";
+import reducer from 'reducers/application';
 
 beforeEach(() => {
   jest.resetModules();
