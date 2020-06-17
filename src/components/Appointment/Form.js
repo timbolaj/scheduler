@@ -1,10 +1,8 @@
-import React, { useState } from 'react';
-import Button from 'components/Button';
-import InterviewerList from 'components/InterviewerList';
-import { action } from '@storybook/addon-actions/dist/preview';
+import React, { useState } from "react";
+import Button from "components/Button";
+import InterviewerList from "components/InterviewerList";
 
 export default function Form(props) {
-
   //For keeping track of the name
   const [currentName, setName] = useState(props.name || "");
   const [currentInterviewer, setInterviewer] = useState(props.value || null);
@@ -38,8 +36,8 @@ export default function Form(props) {
           <input
             className="appointment__create-input text--semi-bold"
             name={props.name}
-            type="text"        
-            onChange={(event) => setName(event.target.value)}            
+            type="text"
+            onChange={(event) => setName(event.target.value)}
             value={currentName}
             placeholder="Enter Student Name"
             // placeholder={currentName ? currentName : "Enter Student Name"}
@@ -48,16 +46,28 @@ export default function Form(props) {
               This must be a controlled component
             */
           />
-        <section className="appointment__validation">{error}</section>
+          <section className="appointment__validation">{error}</section>
         </form>
-        <InterviewerList interviewers={props.interviewers} value={currentInterviewer} onChange={(event) => setInterviewer(event)} />
+        <InterviewerList
+          interviewers={props.interviewers}
+          value={currentInterviewer}
+          onChange={(event) => setInterviewer(event)}
+        />
       </section>
       <section className="appointment__card-right">
         <section className="appointment__actions">
-          <Button danger onClick={cancel}>Cancel</Button>
-          <Button confirm onSubmit={event => event.preventDefault()} onClick={validate}>Save</Button>
+          <Button danger onClick={cancel}>
+            Cancel
+          </Button>
+          <Button
+            confirm
+            onSubmit={(event) => event.preventDefault()}
+            onClick={validate}
+          >
+            Save
+          </Button>
         </section>
       </section>
     </main>
   );
-};
+}

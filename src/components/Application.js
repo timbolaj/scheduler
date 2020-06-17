@@ -3,16 +3,20 @@ import "components/Application.scss";
 import DayList from "./DayList";
 import InterviewerList from "./InterviewerList";
 import Appointment from "components/Appointment";
-import { matchAppointments, getAppointmentsForDay, getInterview, getInterviewersForDay } from "helpers/selectors";
+import {
+  matchAppointments,
+  getAppointmentsForDay,
+  getInterview,
+  getInterviewersForDay,
+} from "helpers/selectors";
 import useApplicationData from "hooks/useApplicationData";
 
 export default function Application(props) {
-
   const {
     state,
     setDay,
     bookInterview,
-    cancelInterview
+    cancelInterview,
   } = useApplicationData();
 
   const appointmentObjects = getAppointmentsForDay(state, state.day);
@@ -22,15 +26,15 @@ export default function Application(props) {
     const interview = getInterview(state, appointmentObject.interview);
 
     return (
-        <Appointment 
-          {...appointmentObject}
-          key={appointmentObject.id}
-          interview={interview}
-          interviewers={interviewers}
-          bookInterview={bookInterview}
-          cancelInterview={cancelInterview}
-        />
-      )
+      <Appointment
+        {...appointmentObject}
+        key={appointmentObject.id}
+        interview={interview}
+        interviewers={interviewers}
+        bookInterview={bookInterview}
+        cancelInterview={cancelInterview}
+      />
+    );
   });
 
   return (
@@ -43,13 +47,13 @@ export default function Application(props) {
         />
         <hr className="sidebar__separator sidebar--centered" />
         <nav className="sidebar__menu">
-        <DayList
-          days={state.days}
-          day={state.day}
-          setDay={setDay}
-          bookInterview={bookInterview}
-          cancelInterview={cancelInterview}
-        />
+          <DayList
+            days={state.days}
+            day={state.day}
+            setDay={setDay}
+            bookInterview={bookInterview}
+            cancelInterview={cancelInterview}
+          />
         </nav>
         <img
           className="sidebar__lhl sidebar--centered"
@@ -59,9 +63,13 @@ export default function Application(props) {
       </section>
       <section className="schedule">
         {appointment}
-        <Appointment key="last" time="5pm" bookInterview={bookInterview} cancelInterview={cancelInterview} 
+        <Appointment
+          key="last"
+          time="5pm"
+          bookInterview={bookInterview}
+          cancelInterview={cancelInterview}
         />
       </section>
     </main>
   );
-};
+}
