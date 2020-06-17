@@ -2,6 +2,10 @@
 
 The Interview Scheduler is a web application which displays interviews scheduled from noon to 5pm, Monday to Friday. Interacting with a scheduler-api server, users can add, modify and delete appointments.
 
+!["Initial Render"](https://github.com/timbolaj/scheduler/blob/master/docs/Initial-render.png?raw=true)
+!["Creating an Appointment"](https://github.com/timbolaj/scheduler/blob/master/docs/Creating-appointment.png?raw=true)
+!["Appointment Made"](https://github.com/timbolaj/scheduler/blob/master/docs/Appointment-created.png?raw=true)
+
 ## Dependencies
 
 - Axios
