@@ -33,7 +33,7 @@ export default function Appointment(props) {
       transition(SHOW);
     }
     
-    if (!props.interview && mode === SHOW) {
+    if (props.interview === null && mode === SHOW) {
       transition(EMPTY);
     }
 
@@ -76,12 +76,12 @@ export default function Appointment(props) {
     <article className="appointment" data-testid="appointment">
       <Header time={props.time} />
       {mode === EMPTY && <Empty onAdd={() => transition(CREATE)} />}
-      {mode === SHOW && (
+      {mode === SHOW && props.interview && (
         <Show
           student={props.interview.student}
           interviewer={props.interview.interviewer}
-          onDelete={remove}
-          onEdit={edit}
+          onDelete={() => transition(CONFIRM)}
+          onEdit={() => transition(EDIT)}
         />
       )}
       {mode === CREATE &&

@@ -7,7 +7,7 @@ import reducer, {
 } from "reducers/application";
 
 export default function useApplicationData(props) {
-  
+
   const [state, dispatch] = useReducer(reducer, {
     day: "Monday",
     days: [],
@@ -28,7 +28,28 @@ export default function useApplicationData(props) {
         days: all[0].data,
         appointments: all[1].data,
         interviewers: all[2].data
-      });
+      })
+      let webSocket = new WebSocket("ws://localhost:8001")
+      webSocket.onopen = (() => {
+        webSocket.send("ping")
+      })
+
+      webSocket.onmessage = function (event) {
+        const info = JSON.parse(event.data);
+        if (info.type === SET_INTERVIEW) {
+          dispatch({
+            type: SET_INTERVIEW,
+            id: info.id,
+            interview: info.interview
+          })
+        } else {
+          dispatch({
+            type: SET_INTERVIEW,
+            id: info.id,
+            interview: null
+          })
+        }
+      }
     });
   }, []);
 
@@ -51,6 +72,7 @@ export default function useApplicationData(props) {
       })
     );
   }
+
   return {
     state,
     setDay,
