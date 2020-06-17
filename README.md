@@ -1,6 +1,28 @@
 # Interview Scheduler
 
-The Interview Scheduler is a web application which permits users to create, modify and delete appointments from the time slots of noon to 5pm, Monday to Friday. 
+The Interview Scheduler is a web application which displays interviews scheduled from noon to 5pm, Monday to Friday. Interacting with a scheduler-api server, users can add, modify and delete appointments.
+
+## Dependencies
+
+- Axios
+- Classnames
+- Normalize.css
+- React
+- React-dom
+- React-scripts
+- Babel/core
+- Storybook/addon-actions
+- Storybook/addon-backgrounds
+- Storybook/addon-links
+- Storybook/addons
+- Storybook/react
+- Testing-library/jest-dom
+- Testing-library/react
+- Testing-library/react-hooks
+- Babel-loader
+- Node-sass
+- Prop-types
+- React-test-renderer
 
 ## Setup
 
@@ -26,4 +48,4 @@ npm run storybook
 
 ## Stretch Features
 
-The web app uses websockets; allowing multiple users to add, modify and delete appointments from multiple simultaneously open browsers.
+The web app uses websockets; allowing multiple users to add, modify and delete appointments from multiple,simultaneously open browsers.
