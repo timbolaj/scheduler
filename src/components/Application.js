@@ -1,10 +1,8 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import "components/Application.scss";
 import DayList from "./DayList";
-import InterviewerList from "./InterviewerList";
 import Appointment from "components/Appointment";
 import {
-  matchAppointments,
   getAppointmentsForDay,
   getInterview,
   getInterviewersForDay,
