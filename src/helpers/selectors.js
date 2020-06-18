@@ -12,7 +12,7 @@ const getAppointmentsForDay = (state, day) => {
     if (dayObject.name === day) {
       dayObject.appointments.forEach((apptId) => appointmentArr.push(apptId));
     }
-    return;
+    return null;
   });
   return matchIds(state.appointments, appointmentArr);
 };
@@ -37,7 +37,7 @@ function getInterviewersForDay(state, day) {
         interviewersArr.push(interviewerId)
       );
     }
-    return;
+    return null;
   });
   return matchIds(state.interviewers, interviewersArr);
 }
