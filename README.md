@@ -52,4 +52,6 @@ npm run storybook
 
 ## Stretch Features
 
-The web app uses websockets; allowing multiple users to add, modify and delete appointments from multiple,simultaneously open browsers.
+The web app uses websockets; allowing multiple users to add, modify and delete appointments from multiple,simultaneously open browsers (only available on localhost).
+
+The Interview Scheduler is also deployed on Netlify and can be found by clicking on this link: https://reverent-leakey-1822b1.netlify.app/
